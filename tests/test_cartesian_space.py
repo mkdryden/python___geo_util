@@ -156,10 +156,6 @@ class TestCartesianSpace(gtk.Window):
 
 
 if __name__ == '__main__':
-    svg_space = CartesianSpace(1280, 1024, offset=(-640, -512))
-    inset_space = CartesianSpace(500, 300)
-    inset_space.update_scale(svg_space.dims)
-
     t = TestCartesianSpace()
     t.show_all()
     gtk.main()
