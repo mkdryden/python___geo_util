@@ -4,7 +4,7 @@ import sys
 
 import gtk
 import numpy as np
-from path import path
+from path_helpers import path
 
 package_path = path(__file__).parent.parent.abspath()
 sys.path.insert(0, package_path)
