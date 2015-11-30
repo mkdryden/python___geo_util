@@ -1,13 +1,8 @@
 from __future__ import division
 import math
-import sys
 
 import gtk
 import numpy as np
-from path_helpers import path
-
-package_path = path(__file__).parent.parent.abspath()
-sys.path.insert(0, package_path)
 from geo_util import CartesianSpace
 
 
@@ -86,7 +81,7 @@ class TestCartesianSpace(gtk.Window):
         x, y, w, h = self.area_a.get_allocation()
         padding = (self.padding * w, self.padding * h)
         self.space_b = CartesianSpace(w - 2 * padding[0], h - 2 * padding[1],
-                offset=(padding[0], padding[1]))
+                                      offset=(padding[0], padding[1]))
         cairo_context.rectangle(*(self.space_b._offset + self.space_b.dims))
         cairo_context.stroke()
 
