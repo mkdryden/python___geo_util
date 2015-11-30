@@ -1,0 +1,7 @@
+include RELEASE-VERSION
+include version.py
+include setup.py
+include paver-minilib.zip
+recursive-include geo_util *
+recursive-exclude geo_util *.pyc
+recursive-exclude geo_util *~
