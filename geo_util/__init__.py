@@ -51,11 +51,31 @@ class CartesianSpace(object):
         return self._scale
 
     def translate_normalized(self, x, y):
-        return np.array([x, y]) * self.dims + self._offset
+        '''
+        Return x, y coordinates in space domain (with offset applied).
+
+        Arguments
+        ---------
+
+         - `x`: Numeric or array-like coordinate(s) in domain [0, 1].
+         - `y`: Numeric or array-like coordinate(s) in domain [0, 1].
+        '''
+        return np.array([x, y]).T * self.dims + self._offset
 
     def normalized_coords(self, x, y):
+        '''
+        Return x, y coordinates normalized to within range [0, 1].
+
+        Arguments
+        ---------
+
+         - `x`: Numeric or array-like coordinate(s) in domain
+           [`self._offset[0]`, `self._offset[0] + self.width`].
+         - `y`: Numeric or array-like coordinate(s) in domain
+           [`self._offset[1]`, `self._offset[1] + self.height`].
+        '''
         return np.array([(x - self._offset[first_dim]) / self.width,
-                (y - self._offset[second_dim]) / self.height])
+                         (y - self._offset[second_dim]) / self.height])
 
     def update_scale(self, scale_dims):
         dim = self.largest_dim
